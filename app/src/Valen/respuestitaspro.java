@@ -14,11 +14,11 @@ public class respuestitaspro {
         String imput;
         String yn = "";
 
-        while (!yn.equals("N\r")) {
+        recb = new Scanner(System.in).useDelimiter("\r");
+
+        while (!yn.equals("N")) {
 
            System.out.println("El mensaje se contestara sí \n1: Es una coincidencia exacta\n2: Si el mensaje contiene la(s) palabra(s)\n3: Comienza con la(s) palabra(s)\n4: Termine con la(s) palabra(s)");
-           
-           recb = new Scanner(System.in).useDelimiter("\r");
 
            imput = recb.next();
            
@@ -26,9 +26,9 @@ public class respuestitaspro {
                
                 case 1:{
 
-                    System.out.println("Escribe el mensaje al que desea responder");
+                    recb.nextLine();
 
-                    recb = new Scanner(System.in).useDelimiter("\r"); 
+                    System.out.println("Escribe el mensaje al que desea responder"); 
 
                     imput = recb.next();
 
@@ -39,9 +39,9 @@ public class respuestitaspro {
 
                 case 2:{
 
-                    System.out.println("Escribe el mensaje al que desea responder");
+                    recb.nextLine();
 
-                    recb = new Scanner(System.in).useDelimiter("\r"); 
+                    System.out.println("Escribe el mensaje al que desea responder"); 
 
                     imput = ".*" + "(?)" + recb.next() + ".*";
 
@@ -52,9 +52,9 @@ public class respuestitaspro {
 
                 case 3:{
 
-                    System.out.println("Escribe el mensaje al que desea responder");
+                    recb.nextLine();
 
-                    recb = new Scanner(System.in).useDelimiter("\r"); 
+                    System.out.println("Escribe el mensaje al que desea responder");
 
                     imput = "^" + "(?)" + recb.next() + ".*";
 
@@ -65,9 +65,9 @@ public class respuestitaspro {
 
                 case 4:{
 
-                    System.out.println("Escribe el mensaje al que desea responder");
+                    recb.nextLine();
 
-                    recb = new Scanner(System.in).useDelimiter("\r"); 
+                    System.out.println("Escribe el mensaje al que desea responder");
 
                     imput = ".*" + "(?)" + recb.next() + "$";
 
@@ -77,33 +77,31 @@ public class respuestitaspro {
                 }
            }
 
-            System.out.println("Ahora escriba lo que desea responder");
+           recb.nextLine();
 
-            recb = new Scanner(System.in).useDelimiter("\r");
+            System.out.println("Ahora escriba lo que desea responder")
 
             imput = recb.next();
 
             respt.add(imput);
 
-            System.out.println("¿Desea añadir mas respuestas? (Y/N)");
+            recb.nextLine();
 
-            recb = new Scanner(System.in).useDelimiter("\n");
+            System.out.println("¿Desea añadir mas respuestas? (Y/N)");
 
             yn = recb.next();
 
         }
 
+        recb.nextLine();
+
         System.out.println("Introduce tu mensaje");
 
-        Scanner mss = new Scanner(System.in);
-
-        mss.useDelimiter("\n");
-
-        msj msj1 = new msj(mss.next(), condi, respt);
+        msj msj1 = new msj(recb.next(), condi, respt);
 
         System.out.println(msj1.contestacion());
-
-        mss.close();
+        
+        recb.close();
 
     }
 }
@@ -120,7 +118,9 @@ class msj {
 
             if  (mensaje.matches(condi.get(i)));{
 
-                respuesta += respt.get(i);
+                respuesta += respt.get(i); 
+                
+                respuesta += " ";
 
             }
 
