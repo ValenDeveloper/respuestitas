@@ -116,11 +116,9 @@ class msj {
 
         for (int i = 0; i < condi.size(); i++) {
 
-            Pattern cont = Pattern.compile(condi.get(i));
+            mensaje.matches(condi.get(i));
 
-            Matcher sies = cont.matcher(mensaje);
-
-            if (sies.matches()) {
+            if  (mensaje.matches(condi.get(i)));{
 
                 respuesta += respt.get(i);
 
