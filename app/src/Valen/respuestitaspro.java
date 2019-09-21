@@ -79,7 +79,7 @@ public class respuestitaspro {
 
            recb.nextLine();
 
-            System.out.println("Ahora escriba lo que desea responder")
+            System.out.println("Ahora escriba lo que desea responder");
 
             imput = recb.next();
 
