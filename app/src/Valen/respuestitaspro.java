@@ -17,49 +17,50 @@ public class respuestitaspro {
         recb = new Scanner(System.in).useDelimiter("\r");
 
         while (!yn.equals("N")) {
-            
-            System.out.println("El mensaje se contestara sí \n1: Es una coincidencia exacta\n2: Si el mensaje contiene la(s) palabra(s)\n3: Comienza con la(s) palabra(s)\n4: Termine con la(s) palabra(s)");
+
+            System.out.println(
+                    "El mensaje se contestara sí \n1: Es una coincidencia exacta\n2: Si el mensaje contiene la(s) palabra(s)\n3: Comienza con la(s) palabra(s)\n4: Termine con la(s) palabra(s)");
 
             input = recb.next();
-           
+
             recb.nextLine();
 
             System.out.println("Escribe el mensaje al que desea responder");
 
-           switch (Integer.parseInt(input)){
-               
-                case 1:{
+            switch (Integer.parseInt(input)) {
 
-                    input = recb.next();
+            case 1: {
 
-                    break;
-                }
+                input = recb.next();
 
-                case 2:{
+                break;
+            }
 
-                    input = ".*" + "(?)" + recb.next() + ".*";
+            case 2: {
 
-                    break;
-                }
+                input = ".*" + "(?)" + recb.next() + ".*";
 
-                case 3:{
+                break;
+            }
 
-                    input = "^" + "(?)" + recb.next() + ".*";
+            case 3: {
 
-                    break;
-                }
+                input = "^" + recb.next();
 
-                case 4:{
+                break;
+            }
 
-                    input = ".*" + "(?)" + recb.next() + "$";
+            case 4: {
 
-                    break;
-                }
-           }
+                input = ".*" + "(?)" + recb.next() + "$";
 
-           condi.add(input);
+                break;
+            }
+            }
 
-           recb.nextLine();
+            condi.add(input);
+
+            recb.nextLine();
 
             System.out.println("Ahora escriba lo que desea responder");
 
@@ -77,14 +78,12 @@ public class respuestitaspro {
 
         }
 
-        
-
         System.out.println("Introduce tu mensaje");
 
         Msj msj1 = new Msj(recb.next(), condi, respt);
 
         System.out.println(msj1.contestacion());
-        
+
         recb.close();
 
     }
@@ -98,12 +97,10 @@ class Msj {
 
         for (int i = 0; i < condi.size(); i++) {
 
-            mensaje.matches(condi.get(i));
+            if (mensaje.matches(condi.get(i))) {
 
-            if  (mensaje.matches(condi.get(i)));{
+                respuesta += respt.get(i);
 
-                respuesta += respt.get(i); 
-                
                 respuesta += " ";
 
             }
