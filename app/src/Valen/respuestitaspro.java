@@ -16,7 +16,7 @@ public class respuestitaspro {
 
         recb = new Scanner(System.in).useDelimiter("\r");
 
-        while (!yn.mathces("(?i)N")) {
+        while (!yn.matches("(?i)N")) {
 
             System.out.println(
                     "El mensaje se contestara sí \n1: Es una coincidencia exacta\n2: Si el mensaje contiene la(s) palabra(s)\n3: Comienza con la(s) palabra(s)\n4: Termine con la(s) palabra(s)");
@@ -30,60 +30,43 @@ public class respuestitaspro {
             switch (Integer.parseInt(input)) {
 
                 case 1: {
-
                     input = recb.next();
-
                     break;
                 }
 
                 case 2: {
-
                     input = ".*" + "(?i)" + recb.next() + ".*";
-
                     break;
                 }
 
                 case 3: {
-
                     input = "^" + "(?i)" + recb.next() + ".*";
-
                     break;
                 }
 
                 case 4: {
-
                     input = ".*" + "(?i)" + recb.next() + "$";
-
                     break;
                 }
             }
 
             condi.add(input);
-
             recb.nextLine();
 
             System.out.println("Ahora escriba lo que desea responder");
-
             input = recb.next();
-
             respt.add(input);
-
             recb.nextLine();
 
             System.out.println("¿Desea añadir mas respuestas? (Y/N)");
-
             yn = recb.next();
-
             recb.nextLine();
 
         }
 
         System.out.println("Introduce tu mensaje");
-
         Msj msj1 = new Msj(recb.next(), condi, respt);
-
         System.out.println(msj1.contestacion());
-
         recb.close();
 
     }
@@ -98,15 +81,10 @@ class Msj {
         for (int i = 0; i < condi.size(); i++) {
 
             if (mensaje.matches(condi.get(i))) {
-
                 respuesta += respt.get(i);
-
                 respuesta += " ";
-
             }
-
         }
-
     }
 
     public String contestacion() {
