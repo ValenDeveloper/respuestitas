@@ -16,7 +16,7 @@ public class respuestitaspro {
 
         recb = new Scanner(System.in).useDelimiter("\r");
 
-        while (!yn.equals("N")) {
+        while (!yn.mathces("(?i)N")) {
 
             System.out.println(
                     "El mensaje se contestara sí \n1: Es una coincidencia exacta\n2: Si el mensaje contiene la(s) palabra(s)\n3: Comienza con la(s) palabra(s)\n4: Termine con la(s) palabra(s)");
@@ -29,33 +29,33 @@ public class respuestitaspro {
 
             switch (Integer.parseInt(input)) {
 
-            case 1: {
+                case 1: {
 
-                input = recb.next();
+                    input = recb.next();
 
-                break;
-            }
+                    break;
+                }
 
-            case 2: {
+                case 2: {
 
-                input = ".*" + "(?)" + recb.next() + ".*";
+                    input = ".*" + "(?i)" + recb.next() + ".*";
 
-                break;
-            }
+                    break;
+                }
 
-            case 3: {
+                case 3: {
 
-                input = "^" + recb.next();
+                    input = "^" + "(?i)" + recb.next() + ".*";
 
-                break;
-            }
+                    break;
+                }
 
-            case 4: {
+                case 4: {
 
-                input = ".*" + "(?)" + recb.next() + "$";
+                    input = ".*" + "(?i)" + recb.next() + "$";
 
-                break;
-            }
+                    break;
+                }
             }
 
             condi.add(input);
