@@ -18,19 +18,17 @@ public class respuestitaspro {
 
         while (!yn.equals("N")) {
             
-            recb.nextLine()
-
             System.out.println("El mensaje se contestara sí \n1: Es una coincidencia exacta\n2: Si el mensaje contiene la(s) palabra(s)\n3: Comienza con la(s) palabra(s)\n4: Termine con la(s) palabra(s)");
 
             input = recb.next();
            
             recb.nextLine();
 
+            System.out.println("Escribe el mensaje al que desea responder");
+
            switch (Integer.parseInt(input)){
                
                 case 1:{
-
-                    System.out.println("Escribe el mensaje al que desea responder"); 
 
                     input = recb.next();
 
@@ -39,8 +37,6 @@ public class respuestitaspro {
 
                 case 2:{
 
-                    System.out.println("Escribe el mensaje al que desea responder"); 
-
                     input = ".*" + "(?)" + recb.next() + ".*";
 
                     break;
@@ -48,16 +44,12 @@ public class respuestitaspro {
 
                 case 3:{
 
-                    System.out.println("Escribe el mensaje al que desea responder");
-
                     input = "^" + "(?)" + recb.next() + ".*";
 
                     break;
                 }
 
                 case 4:{
-
-                    System.out.println("Escribe el mensaje al que desea responder");
 
                     input = ".*" + "(?)" + recb.next() + "$";
 
@@ -81,9 +73,11 @@ public class respuestitaspro {
 
             yn = recb.next();
 
+            recb.nextLine();
+
         }
 
-        recb.nextLine();
+        
 
         System.out.println("Introduce tu mensaje");
 
